@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Tambahkan Babel Standalone -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Anda tidak perlu menggunakan '{ React, ReactDOM } = window;'
+        // karena React dan ReactDOM akan tersedia di lingkungan global
+        function Header(props) {
+            return React.createElement('h1', null, 'Belajar React Bersama ', props.text);
+        }
+
+        function HomePage() {
+            return React.createElement('div', null,
+                React.createElement(Header, { text: 'Kamu' }),
+                React.createElement(Header, { text: 'Mahasiswa' })
+            );
+        }
+
+        ReactDOM.render(React.createElement(HomePage), document.getElementById('root'));
+    </script>
+</body>
+</html>

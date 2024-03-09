@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar ReactJS</title>
+    <!-- Tambahkan link Bootstrap CSS jika Anda menggunakan Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app"></div>
+
+    <!-- Ganti type dari "text/jss" menjadi "text/babel" -->
+    <script type="text/babel">
+        // Deklarasi komponen Cardsjsx
+        class Cardsjsx extends React.Component {
+            render() {
+                // Membuat elemen card menggunakan JSX
+                const card = (
+                    <div className="card">
+                        <div className="card-body">
+                            <h5 className="card-title">Belajar React Bersama LearningX</h5>
+                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa?</p> 
+                            <a href="#" className="btn btn-primary">Submit</a>
+                        </div>
+                    </div>
+                );
+                // Mengembalikan elemen card
+                return card;
+            }
+        }
+
+        // Merender komponen Cardsjsx ke dalam elemen dengan ID "app"
+        ReactDOM.render(<Cardsjsx />, document.getElementById('app'));
+    </script>
+
+    <!-- Tambahkan link React dan Babel jika Anda belum memiliki -->
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <!-- Tambahkan link Bootstrap JS jika Anda menggunakan Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
