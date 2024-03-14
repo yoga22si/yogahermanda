@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan State</title>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        class GasStation extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    fuelType: "premium",
+                    price: 1000
+                };
+            }
+
+            updateName = (newFuelType) => {
+                const priceMultiplier = {
+                    premium: 1000,
+                    pertalite: 12000,
+                    pertamax: 15000
+                };
+
+                this.setState({ fuelType: newFuelType, price: priceMultiplier[newFuelType] });
+            }
+
+            updatePrice = (newPrice) => {
+                const priceMultiplier = {
+                    premium: 1000,
+                    pertalite: 12000,
+                    pertamax: 15000
+                };
+
+                const calculatedPrice = priceMultiplier[this.state.fuelType] * newPrice;
+                this.setState({ price: calculatedPrice });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Informasi POM Bensin</h2>
+                        <p>Jenis Bensin: {this.state.fuelType}</p>
+                        <p>Harga: Rp {this.state.price}</p>
+                        <button onClick={() => this.updateName("premium")}>Premium</button>
+                        <button onClick={() => this.updateName("pertalite")}>Pertalite</button>
+                        <button onClick={() => this.updateName("pertamax")}>Pertamax</button>
+                        <input type="number" onChange={(event) => this.updatePrice(event.target.value)} />
+                    </div>
+                );
+            }
+        }
+
+        // Render komponen ke RealDOM
+        ReactDOM.render(<GasStation />, document.getElementById("root"));
+    </script>
+</body>
+</html>
